@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Curran Leeds — Design Tokens
+   Generated from the Personal Brand Guidelines deck (page 8–14, 16).
+   Drop this file in as css/tokens.css. Nothing here should need hand-tuning —
+   if a color or size looks off, fix it at the source (the deck) and regenerate,
+   don't patch values here directly.
+   ========================================================================== */
+
+:root {
+  /* ---------- Color: Primary (Greece Blue) ---------- */
+  --primary-50: #E6ECF3;
+  --primary-100: #CCDAE7;
+  --primary-200: #9EB8D2;
+  --primary-300: #7196BC;
+  --primary-400: #396DA2;
+  --primary-500: #014488; /* brand primary */
+  --primary-600: #013A74;
+  --primary-700: #012E5C;
+  --primary-800: #002244;
+  --primary-900: #001429;
+
+  /* ---------- Color: Secondary — Sweden Yellow ---------- */
+  --yellow-50: #FFFAE6;
+  --yellow-100: #FFF5CC;
+  --yellow-200: #FFEC9E;
+  --yellow-300: #FFE370;
+  --yellow-400: #FFD838;
+  --yellow-500: #FFCD00; /* brand secondary */
+  --yellow-600: #D9AE00;
+  --yellow-700: #AD8B00;
+  --yellow-800: #806600;
+  --yellow-900: #4C3E00;
+
+  /* ---------- Color: Secondary — Norway Red ---------- */
+  --red-50: #FAE7EB;
+  --red-100: #F6CFD6;
+  --red-200: #EEA4B2;
+  --red-300: #E6798D;
+  --red-400: #DC4561;
+  --red-500: #D21034; /* brand secondary / kicker & accent color */
+  --red-600: #B20E2C;
+  --red-700: #8F0B23;
+  --red-800: #69081A;
+  --red-900: #3F0510;
+
+  /* ---------- Color: Neutral ---------- */
+  --neutral-50: #FFFFFF;
+  --neutral-100: #E3E3E3;
+  --neutral-200: #C6C6C6;
+  --neutral-300: #AAAAAA;
+  --neutral-400: #8E8E8E;
+  --neutral-500: #717171;
+  --neutral-600: #555555;
+  --neutral-700: #393939;
+  --neutral-800: #1C1C1C;
+  --neutral-900: #000000;
+
+  /* ---------- Color: Semantic (status only — never decorative) ---------- */
+  --alert: #FF0000;
+  --success: #28A745;
+  --warning: #FF8500;
+
+  /* ---------- Type families ---------- */
+  --font-head: 'Archivo', sans-serif;   /* headlines & subheads */
+  --font-body: 'Work Sans', sans-serif; /* body, captions, buttons */
+
+  /* ---------- Fluid type scale — Perfect Fourth (1.333) at desktop,
+     Minor Third (1.2) at mobile for headings; body/caption/fine-print
+     use a single consistent ratio so they scale down without inverting.
+     Viewport bounds: 320px–1440px. Desktop body lands exactly on the
+     18px spec. ---------- */
+  --fs-fine:     clamp(0.6944rem, 0.6696rem + 0.1240vw, 0.7813rem); /* ~11 → 12.5px */
+  --fs-caption:  clamp(0.8333rem, 0.8036rem + 0.1488vw, 0.9375rem); /* ~13.3 → 15px */
+  --fs-base:     clamp(1.0000rem, 0.9643rem + 0.1786vw, 1.1250rem); /* 16 → 18px */
+  --fs-subhead:  clamp(1.2000rem, 1.1144rem + 0.4280vw, 1.4996rem); /* ~19.2 → 24px */
+  --fs-h4:       clamp(1.4400rem, 1.2803rem + 0.7986vw, 1.9990rem); /* ~23 → 32px */
+  --fs-h3:       clamp(1.7280rem, 1.4604rem + 1.3381vw, 2.6647rem); /* ~27.6 → 42.6px */
+  --fs-h2:       clamp(2.0736rem, 1.6512rem + 2.1120vw, 3.5520rem); /* ~33.2 → 56.8px */
+  --fs-h1:       clamp(2.4883rem, 1.8465rem + 3.2093vw, 4.7348rem); /* ~39.8 → 75.8px */
+
+  /* ---------- Spacing — 0.15" print unit converted to an 8px-based web scale ---------- */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 3rem;     /* 48px */
+  --space-6: 4rem;     /* 64px */
+}
+
+/* Element defaults — safe to expand, don't fight these values elsewhere */
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  color: var(--neutral-800);
+  background: var(--neutral-50);
+  line-height: 1.55;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1.1;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+.subhead { font-family: var(--font-head); font-weight: 500; font-size: var(--fs-subhead); }
+caption, .caption, small { font-size: var(--fs-caption); }
+.fine-print { font-size: var(--fs-fine); color: var(--neutral-500); }

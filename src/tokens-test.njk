@@ -1,0 +1,90 @@
+---
+title: Tokens Test
+layout: base.njk
+---
+<style>
+  .token-test { padding: var(--space-4); max-width: 1000px; }
+  .token-test h2 { margin-top: var(--space-6); }
+  .token-test h3 { margin-top: var(--space-4); }
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-2);
+  }
+  .swatch {
+    border: 1px solid var(--neutral-200);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .swatch-color { height: 64px; }
+  .swatch-label {
+    padding: var(--space-1);
+    background: var(--neutral-50);
+    font-size: var(--fs-fine);
+    font-family: var(--font-body);
+  }
+  .type-scale-row {
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--neutral-100);
+  }
+  .type-scale-row .sample { margin: 0; font-family: var(--font-head); }
+  .type-scale-row .meta { margin: 0; color: var(--neutral-500); font-size: var(--fs-fine); }
+</style>
+
+<div class="token-test">
+  <h1>Design Token Test</h1>
+  <p class="fine-print">Throwaway page — visual check of tokens.css. Not part of the real site.</p>
+
+  <h2>Color scales</h2>
+
+  {% set colorGroups = [
+    { name: "Primary — Greece Blue", prefix: "primary" },
+    { name: "Secondary — Sweden Yellow", prefix: "yellow" },
+    { name: "Secondary — Norway Red", prefix: "red" },
+    { name: "Neutral", prefix: "neutral" }
+  ] %}
+  {% set steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] %}
+
+  {% for group in colorGroups %}
+    <h3>{{ group.name }}</h3>
+    <div class="swatch-grid">
+      {% for step in steps %}
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--{{ group.prefix }}-{{ step }});"></div>
+          <div class="swatch-label">--{{ group.prefix }}-{{ step }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+  <h3>Semantic (status only)</h3>
+  <div class="swatch-grid">
+    {% for name in ["alert", "success", "warning"] %}
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--{{ name }});"></div>
+        <div class="swatch-label">--{{ name }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <h2>Fluid type scale</h2>
+  <p class="fine-print">Resize the browser window to confirm each step scales smoothly between the 320px and 1440px bounds.</p>
+
+  {% set typeSteps = [
+    { var: "fs-fine", label: "Fine print" },
+    { var: "fs-caption", label: "Caption" },
+    { var: "fs-base", label: "Base / body" },
+    { var: "fs-subhead", label: "Subhead" },
+    { var: "fs-h4", label: "H4" },
+    { var: "fs-h3", label: "H3" },
+    { var: "fs-h2", label: "H2" },
+    { var: "fs-h1", label: "H1" }
+  ] %}
+  {% for t in typeSteps %}
+    <div class="type-scale-row">
+      <p class="sample" style="font-size: var(--{{ t.var }});">{{ t.label }} — Aa Bb Cc</p>
+      <p class="meta">--{{ t.var }}</p>
+    </div>
+  {% endfor %}
+</div>
